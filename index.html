@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SergiTech Soluções — TI, Eletrônica e IoT em Aracaju</title>
+<meta name="description" content="Especialistas em TI, Eletrônica e IoT em Sergipe. Suporte, Servidores Linux, LGPD, Automação e Bots WhatsApp com IA. Diagnóstico gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #050D1A;
+  --dark2: #0A1628;
+  --green: #1D9E75;
+  --green2: #5DCAA5;
+  --blue: #378ADD;
+  --blue2: #85B7EB;
+  --white: #FFFFFF;
+  --gray: #8892A4;
+  --card-bg: #0D1F35;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+
+/* ── GRID BG ── */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(29,158,117,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29,158,117,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5,13,26,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(29,158,117,0.15);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.nav-logo-text span { color: var(--green); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--gray);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--green); }
+
+.nav-cta {
+  background: var(--green);
+  color: var(--dark) !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 600 !important;
+  color: var(--dark) !important;
+}
+
+.nav-cta:hover { background: var(--green2) !important; color: var(--dark) !important; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 5% 80px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(29,158,117,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-glow2 {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(55,138,221,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 650px;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(29,158,117,0.1);
+  border: 1px solid rgba(29,158,117,0.3);
+  border-radius: 100px;
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-badge span {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green2);
+}
+
+.hero h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.hero h1 .accent { color: var(--green); }
+.hero h1 .accent2 { color: var(--blue); }
+
+.hero p {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green);
+  color: var(--dark);
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--green2);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.stat-item { }
+.stat-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.stat-number span { color: var(--green); }
+.stat-label {
+  font-size: 12px;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hero-visual {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* ── CHIP SVG HERO ── */
+.chip-hero {
+  width: 320px;
+  height: 320px;
+  opacity: 0.85;
+}
+
+/* ── SECTION COMUM ── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 5%;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--green);
+}
+
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-title span { color: var(--green); }
+
+.section-sub {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 60px;
+}
+
+/* ── SERVIÇOS ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(29,158,117,0.1);
+  border-radius: 12px;
+  padding: 32px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover {
+  border-color: rgba(29,158,117,0.3);
+  transform: translateY(-4px);
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(29,158,117,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.service-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.service-tag {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+/* ── LGPD SECTION ── */
+.lgpd-section {
+  background: linear-gradient(135deg, rgba(29,158,117,0.05) 0%, rgba(55,138,221,0.05) 100%);
+  border-top: 1px solid rgba(29,158,117,0.1);
+  border-bottom: 1px solid rgba(29,158,117,0.1);
+}
+
+.lgpd-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.lgpd-alert {
+  background: rgba(231,76,60,0.08);
+  border: 1px solid rgba(231,76,60,0.2);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.lgpd-alert-icon { font-size: 22px; flex-shrink: 0; }
+
+.lgpd-alert-text h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #E74C3C;
+  margin-bottom: 4px;
+}
+
+.lgpd-alert-text p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.lgpd-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lgpd-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.lgpd-list li::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.lgpd-cta-box {
+  background: var(--card-bg);
+  border: 1px solid rgba(29,158,117,0.2);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+.lgpd-cta-box h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.lgpd-cta-box p {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.lgpd-free-badge {
+  display: inline-block;
+  background: rgba(29,158,117,0.15);
+  border: 1px solid rgba(29,158,117,0.3);
+  color: var(--green2);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+/* ── IOT SECTION ── */
+.iot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.iot-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.iot-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.iot-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(55,138,221,0.1);
+  border: 1px solid rgba(55,138,221,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.iot-feature-text h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.iot-feature-text p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.iot-visual {
+  background: var(--card-bg);
+  border: 1px solid rgba(55,138,221,0.15);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.iot-circuit {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.iot-node {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: rgba(55,138,221,0.08);
+  border: 1px solid rgba(55,138,221,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.iot-node.active {
+  background: rgba(29,158,117,0.15);
+  border-color: rgba(29,158,117,0.3);
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── DIFERENCIAIS ── */
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.diff-item {
+  background: var(--dark);
+  padding: 40px 32px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.diff-item:hover { background: var(--card-bg); }
+
+.diff-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.diff-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.diff-item p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* ── CONTATO ── */
+.contact-section { text-align: center; }
+
+.contact-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(29,158,117,0.1);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-card:hover {
+  border-color: var(--green);
+  transform: translateY(-4px);
+}
+
+.contact-card-icon { font-size: 28px; }
+
+.contact-card h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.contact-card span {
+  font-size: 12px;
+  color: var(--green2);
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.footer-logo span { color: var(--green); }
+
+.footer-text {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+}
+
+.wa-float svg { width: 30px; height: 30px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { padding: 100px 5% 60px; }
+  .hero-visual { display: none; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .lgpd-inner, .iot-grid { grid-template-columns: 1fr; gap: 40px; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 60 60" fill="none">
+      <circle cx="30" cy="30" r="28" fill="#0A1628" stroke="#1D9E75" stroke-width="1.5"/>
+      <rect x="19" y="17" width="22" height="22" rx="3" fill="#061221" stroke="#1D9E75" stroke-width="1.5"/>
+      <rect x="22" y="20" width="16" height="16" rx="2" fill="#030C17" stroke="#378ADD" stroke-width="0.8"/>
+      <line x1="12" y1="22" x2="19" y2="22" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="12" y1="27" x2="19" y2="27" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="12" y1="32" x2="19" y2="32" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="12" y1="37" x2="19" y2="37" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="41" y1="22" x2="48" y2="22" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="41" y1="27" x2="48" y2="27" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="41" y1="32" x2="48" y2="32" stroke="#85B7EB" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="41" y1="37" x2="48" y2="37" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="24" y="22" width="5" height="5" rx="1" fill="#1D9E75"/>
+      <rect x="31" y="22" width="5" height="5" rx="1" fill="#378ADD"/>
+      <rect x="24" y="29" width="5" height="5" rx="1" fill="#5DCAA5"/>
+      <rect x="31" y="29" width="5" height="5" rx="1" fill="#1D9E75"/>
+      <rect x="24" y="36" width="5" height="5" rx="1" fill="#378ADD"/>
+      <rect x="31" y="36" width="5" height="5" rx="1" fill="#5DCAA5"/>
+      <text x="30" y="54" text-anchor="middle" font-family="Arial Black" font-size="6" font-weight="900" fill="#fff" letter-spacing="1">ST</text>
+    </svg>
+    <div class="nav-logo-text">SERGI<span>TECH</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#lgpd">LGPD</a></li>
+    <li><a href="#iot">IoT</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="https://wa.me/5579998273888" class="nav-cta">WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Aracaju — Sergipe</span>
+    </div>
+    <h1>
+      Tecnologia que<br>
+      <span class="accent">resolve</span> de verdade<br>
+      <span class="accent2">para o seu negócio</span>
+    </h1>
+    <p>Especialistas em TI, Eletrônica e IoT em Sergipe. 20 anos de experiência em infraestrutura Linux e ambientes de alta disponibilidade — agora ao alcance da sua empresa.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/5579998273888?text=Olá,%20gostaria%20do%20diagnóstico%20gratuito" class="btn-primary">
+        🔍 Diagnóstico Gratuito
+      </a>
+      <a href="#servicos" class="btn-secondary">
+        Ver Serviços →
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">20<span>+</span></div>
+        <div class="stat-label">Anos em Linux</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24<span>h</span></div>
+        <div class="stat-label">Bot WhatsApp</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">R$<span>0</span></div>
+        <div class="stat-label">Diagnóstico</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <svg class="chip-hero" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="160" cy="160" r="150" stroke="#1D9E75" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.3"/>
+      <circle cx="160" cy="160" r="120" stroke="#1D9E75" stroke-width="0.5" opacity="0.15"/>
+      <circle cx="160" cy="160" r="90" fill="#0A1628" stroke="#1D9E75" stroke-width="1.5"/>
+      <rect x="118" y="118" width="84" height="84" rx="8" fill="#061221" stroke="#1D9E75" stroke-width="2"/>
+      <rect x="128" y="128" width="64" height="64" rx="5" fill="#030C17" stroke="#378ADD" stroke-width="1"/>
+      <!-- Pinos esquerda -->
+      <line x1="96" y1="130" x2="118" y2="130" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="96" y1="143" x2="118" y2="143" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="96" y1="156" x2="118" y2="156" stroke="#5DCAA5" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="96" y1="169" x2="118" y2="169" stroke="#5DCAA5" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="96" y1="182" x2="118" y2="182" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="96" y1="195" x2="118" y2="195" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Pinos direita -->
+      <line x1="202" y1="130" x2="224" y2="130" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="202" y1="143" x2="224" y2="143" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="202" y1="156" x2="224" y2="156" stroke="#85B7EB" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="202" y1="169" x2="224" y2="169" stroke="#85B7EB" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="202" y1="182" x2="224" y2="182" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="202" y1="195" x2="224" y2="195" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Pinos topo -->
+      <line x1="138" y1="96" x2="138" y2="118" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="151" y1="96" x2="151" y2="118" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="164" y1="96" x2="164" y2="118" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="177" y1="96" x2="177" y2="118" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="190" y1="96" x2="190" y2="118" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Pinos base -->
+      <line x1="138" y1="202" x2="138" y2="224" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="151" y1="202" x2="151" y2="224" stroke="#5DCAA5" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="164" y1="202" x2="164" y2="224" stroke="#5DCAA5" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="177" y1="202" x2="177" y2="224" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="190" y1="202" x2="190" y2="224" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Células -->
+      <rect x="133" y="133" width="12" height="12" rx="2" fill="#1D9E75"/>
+      <rect x="148" y="133" width="12" height="12" rx="2" fill="#378ADD"/>
+      <rect x="163" y="133" width="12" height="12" rx="2" fill="#1D9E75"/>
+      <rect x="178" y="133" width="12" height="12" rx="2" fill="#5DCAA5"/>
+      <rect x="133" y="148" width="12" height="12" rx="2" fill="#378ADD"/>
+      <rect x="148" y="148" width="12" height="12" rx="2" fill="#5DCAA5"/>
+      <rect x="163" y="148" width="12" height="12" rx="2" fill="#378ADD"/>
+      <rect x="178" y="148" width="12" height="12" rx="2" fill="#1D9E75"/>
+      <rect x="133" y="163" width="12" height="12" rx="2" fill="#1D9E75"/>
+      <rect x="148" y="163" width="12" height="12" rx="2" fill="#1D9E75"/>
+      <rect x="163" y="163" width="12" height="12" rx="2" fill="#5DCAA5"/>
+      <rect x="178" y="163" width="12" height="12" rx="2" fill="#378ADD"/>
+      <rect x="133" y="178" width="12" height="12" rx="2" fill="#5DCAA5"/>
+      <rect x="148" y="178" width="12" height="12" rx="2" fill="#378ADD"/>
+      <rect x="163" y="178" width="12" height="12" rx="2" fill="#1D9E75"/>
+      <rect x="178" y="178" width="12" height="12" rx="2" fill="#5DCAA5"/>
+      <!-- Bolinhas nos pinos -->
+      <circle cx="96" cy="130" r="4" fill="#1D9E75"/>
+      <circle cx="96" cy="143" r="4" fill="#1D9E75"/>
+      <circle cx="96" cy="156" r="4" fill="#5DCAA5"/>
+      <circle cx="96" cy="169" r="4" fill="#5DCAA5"/>
+      <circle cx="96" cy="182" r="4" fill="#1D9E75"/>
+      <circle cx="96" cy="195" r="4" fill="#1D9E75"/>
+      <circle cx="224" cy="130" r="4" fill="#378ADD"/>
+      <circle cx="224" cy="143" r="4" fill="#378ADD"/>
+      <circle cx="224" cy="156" r="4" fill="#85B7EB"/>
+      <circle cx="224" cy="169" r="4" fill="#85B7EB"/>
+      <circle cx="224" cy="182" r="4" fill="#378ADD"/>
+      <circle cx="224" cy="195" r="4" fill="#378ADD"/>
+    </svg>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="section-label">O que fazemos</div>
+  <h2 class="section-title">Soluções para <span>todos os perfis</span></h2>
+  <p class="section-sub">Do suporte básico em casa até infraestrutura corporativa de alta disponibilidade. Atendemos pessoa física, pequenas e médias empresas, startups e indústria.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🖥️</div>
+      <h3>Suporte TI</h3>
+      <p>Formatação, vírus, rede Wi-Fi, computadores lentos. Atendimento presencial em Aracaju e remoto para todo o Brasil.</p>
+      <div class="service-tag">Pessoa Física & Empresas →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🐧</div>
+      <h3>Servidores Linux</h3>
+      <p>Administração, hardening, monitoramento 24h com Grafana e Prometheus. 20 anos de experiência em ambiente financeiro.</p>
+      <div class="service-tag">Empresas & Devs →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔒</div>
+      <h3>LGPD & Segurança</h3>
+      <p>Diagnóstico gratuito, mapeamento de dados, criptografia, backup e relatório de conformidade. Evite multas de até R$ 50 milhões.</p>
+      <div class="service-tag">Clínicas & Escritórios →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>Bot WhatsApp com IA</h3>
+      <p>Atendimento automático 24 horas. Menu personalizado, agendamento e integração com inteligência artificial.</p>
+      <div class="service-tag">Pequenas Empresas →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Eletrônica & IoT</h3>
+      <p>Projetos com microcontroladores, sensores MQTT, automação industrial e reparo de placas com laboratório completo.</p>
+      <div class="service-tag">Indústria & Agronegócio →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">☁️</div>
+      <h3>Cloud & DevOps</h3>
+      <p>Migração para nuvem, CI/CD, containers Docker e Kubernetes, SRE como serviço com SLA definido em contrato.</p>
+      <div class="service-tag">Devs & Startups →</div>
+    </div>
+  </div>
+</section>
+
+<!-- LGPD -->
+<section id="lgpd" class="lgpd-section">
+  <div class="lgpd-inner">
+    <div>
+      <div class="section-label">Proteção de Dados</div>
+      <h2 class="section-title">Sua empresa está<br><span>em risco agora</span></h2>
+
+      <div class="lgpd-alert">
+        <div class="lgpd-alert-icon">⚠️</div>
+        <div class="lgpd-alert-text">
+          <h4>Multas chegam a R$ 50 milhões</h4>
+          <p>A LGPD está em vigor desde 2020. Clínicas, escritórios e comércios são os mais autuados em Sergipe.</p>
+        </div>
+      </div>
+
+      <ul class="lgpd-list">
+        <li>Dados de pacientes e clientes sem criptografia</li>
+        <li>Backup inexistente ou sem verificação</li>
+        <li>Computadores compartilhados sem controle de acesso</li>
+        <li>Dados enviados por WhatsApp pessoal</li>
+        <li>Ausência de política de descarte seguro</li>
+      </ul>
+    </div>
+
+    <div class="lgpd-cta-box">
+      <div class="lgpd-free-badge">100% Gratuito</div>
+      <h3>Diagnóstico LGPD em 30 minutos</h3>
+      <p>Identificamos os riscos da sua empresa, mostramos o que precisa ser corrigido e apresentamos uma proposta. Sem custo, sem compromisso.</p>
+      <a href="https://wa.me/5579998273888?text=Olá,%20quero%20o%20diagnóstico%20LGPD%20gratuito" class="btn-primary" style="width:100%;justify-content:center;">
+        Agendar Diagnóstico Gratuito
+      </a>
+      <p style="margin-top:16px;font-size:12px;color:var(--gray);">Respondemos em até 2 horas no horário comercial</p>
+    </div>
+  </div>
+</section>
+
+<!-- IOT -->
+<section id="iot">
+  <div class="iot-grid">
+    <div>
+      <div class="section-label">Eletrônica & IoT</div>
+      <h2 class="section-title">Hardware + Software<br><span>do início ao fim</span></h2>
+      <p class="section-sub" style="margin-bottom:32px;">Aviônico por 10 anos, construtor de transmissores e especialista em microcontroladores. Criamos soluções que não existem no mercado.</p>
+
+      <div class="iot-features">
+        <div class="iot-feature">
+          <div class="iot-feature-icon">📡</div>
+          <div class="iot-feature-text">
+            <h4>Projetos IoT com MQTT</h4>
+            <p>Sensores de temperatura, umidade, nível — monitoramento remoto em tempo real via dashboard.</p>
+          </div>
+        </div>
+        <div class="iot-feature">
+          <div class="iot-feature-icon">🏭</div>
+          <div class="iot-feature-text">
+            <h4>Automação Industrial</h4>
+            <p>Microcontroladores PIC e ESP32 para automatizar processos. Firmware desenvolvido com IA em horas.</p>
+          </div>
+        </div>
+        <div class="iot-feature">
+          <div class="iot-feature-icon">🔧</div>
+          <div class="iot-feature-text">
+            <h4>Reparo de Placas</h4>
+            <p>Microscópio digital, osciloscópio e estação de solda profissional. Reparamos o que outros recusam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="iot-visual">
+      <div class="iot-circuit">
+        <div class="iot-node active">🌡️</div>
+        <div class="iot-node">━</div>
+        <div class="iot-node active">💧</div>
+        <div class="iot-node">━</div>
+        <div class="iot-node active">☁️</div>
+        <div class="iot-node">┃</div>
+        <div class="iot-node"></div>
+        <div class="iot-node">┃</div>
+        <div class="iot-node"></div>
+        <div class="iot-node">┃</div>
+        <div class="iot-node active">📊</div>
+        <div class="iot-node">━</div>
+        <div class="iot-node active">🖥️</div>
+        <div class="iot-node">━</div>
+        <div class="iot-node active">📱</div>
+        <div class="iot-node">┃</div>
+        <div class="iot-node"></div>
+        <div class="iot-node">┃</div>
+        <div class="iot-node"></div>
+        <div class="iot-node">┃</div>
+        <div class="iot-node active">🔔</div>
+        <div class="iot-node">━</div>
+        <div class="iot-node active">⚙️</div>
+        <div class="iot-node">━</div>
+        <div class="iot-node active">✅</div>
+      </div>
+      <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:24px;letter-spacing:1px;">SENSOR → MQTT → DASHBOARD → ALERTA</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section style="padding-top:0">
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-number">20<span style="font-size:28px;color:var(--gray)">+</span></div>
+      <h4>Anos de experiência</h4>
+      <p>Linux em produção no setor financeiro de São Paulo</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-number">24<span style="font-size:28px;color:var(--gray)">h</span></div>
+      <h4>Atendimento automatizado</h4>
+      <p>Bot inteligente responde a qualquer hora do dia</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-number" style="color:var(--blue)">R$0</div>
+      <h4>Diagnóstico gratuito</h4>
+      <p>Sem custo e sem compromisso para o primeiro contato</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="contact-section">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center">Fale Conosco</div>
+    <h2 class="section-title">Pronto para <span>resolver</span>?</h2>
+    <p style="color:var(--gray);font-size:16px;line-height:1.7">Entre em contato agora. Nossa equipe responde em até 2 horas no horário comercial — ou o bot responde na hora, qualquer dia, qualquer horário.</p>
+
+    <div class="contact-cards">
+      <a href="https://wa.me/5579998273888" class="contact-card">
+        <div class="contact-card-icon">💬</div>
+        <h4>WhatsApp</h4>
+        <span>(79) 99827-3888</span>
+      </a>
+      <a href="mailto:contato@sergitech.com.br" class="contact-card">
+        <div class="contact-card-icon">📧</div>
+        <h4>E-mail</h4>
+        <span>contato@sergitech.com.br</span>
+      </a>
+      <a href="https://wa.me/5579998273888?text=Quero%20o%20diagnóstico%20gratuito" class="contact-card">
+        <div class="contact-card-icon">🔍</div>
+        <h4>Diagnóstico</h4>
+        <span>100% gratuito</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SERGI<span>TECH</span> SOLUÇÕES</div>
+  <div class="footer-text">© 2026 SergiTech Soluções · Aracaju, Sergipe · CNPJ em processo</div>
+  <div class="footer-text">TI · Eletrônica · IoT</div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5579998273888" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
